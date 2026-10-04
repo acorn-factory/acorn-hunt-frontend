@@ -1,0 +1,64 @@
+.field-prompt {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 24px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.field-prompt__message {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.55;
+  color: var(--field-text);
+  white-space: pre-line;
+}
+
+.field-prompt__action,
+.field-prompt__secondary {
+  pointer-events: auto;
+  font: inherit;
+  cursor: pointer;
+}
+
+.field-prompt__action {
+  min-width: 132px;
+  height: 47px;
+  padding: 0 28px;
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: var(--button-dark);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: breathe 1.5s ease-in-out infinite;
+}
+
+.field-prompt__action:disabled {
+  opacity: 0.6;
+  animation: none;
+  cursor: default;
+}
+
+.field-prompt__secondary {
+  margin-top: -8px;
+  padding: 4px 12px;
+  border: 0;
+  background: none;
+  color: var(--field-text-subtle);
+  font-size: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field-prompt__action {
+    animation: none;
+  }
+}

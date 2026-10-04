@@ -1,0 +1,86 @@
+.acorn-field {
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.acorn {
+  position: absolute;
+  pointer-events: none;
+  translate: -50% -50%;
+  rotate: var(--rot, 0deg);
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+.acorn__body {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 1px var(--acorn-shadow));
+  -webkit-user-drag: none;
+}
+
+.acorn--init {
+  animation-name: acorn-appear;
+  animation-duration: 320ms;
+  animation-timing-function: cubic-bezier(0.34, 0.9, 0.4, 1);
+}
+
+.acorn--pop {
+  animation-name: acorn-pop-in;
+  animation-duration: 460ms;
+  animation-timing-function: cubic-bezier(0.2, 1.55, 0.4, 1);
+}
+
+.acorn--drop {
+  animation-name: acorn-drop;
+  animation-duration: 720ms;
+  animation-timing-function: cubic-bezier(0.34, 0.9, 0.4, 1);
+}
+
+@keyframes acorn-appear {
+  from {
+    transform: translateY(-14px) scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes acorn-pop-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Falls from the canopy; rotation is applied by `rotate` so it settles at the end. */
+@keyframes acorn-drop {
+  from {
+    transform: translate(var(--from-x), var(--from-y)) scale(0.7);
+    rotate: 0deg;
+  }
+  to {
+    transform: none;
+    rotate: var(--rot, 0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acorn {
+    animation: none;
+  }
+}

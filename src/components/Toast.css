@@ -1,0 +1,38 @@
+.toast {
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.toast__pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: rgba(0, 12, 30, 0.75);
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  animation: toast-in 0.24s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+}
+
+@keyframes toast-in {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast__pill {
+    animation: none;
+  }
+}

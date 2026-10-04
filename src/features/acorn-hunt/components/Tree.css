@@ -1,0 +1,86 @@
+.tree {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 470 / 480;
+  pointer-events: none;
+}
+
+.tree__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-user-drag: none;
+}
+
+/* Canopy pivots at the trunk so sway/shake look rooted. */
+.tree__canopy {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 78%;
+  animation: tree-sway 2.4s ease-in-out infinite;
+}
+
+.tree.is-highlighted > .tree__layer,
+.tree.is-highlighted > .tree__canopy {
+  filter: drop-shadow(0 0 0 #fff) drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff)
+    drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff);
+}
+
+.tree__nut {
+  position: absolute;
+  width: 15%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.5);
+  transition:
+    opacity 0.34s ease,
+    transform 0.34s cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.tree__nut.is-on {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tree__chip {
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  translate: -50% 0;
+  height: 32px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--button-dark);
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  pointer-events: auto;
+  animation: breathe 1.5s ease-in-out infinite;
+}
+
+@keyframes tree-sway {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-1.5deg);
+  }
+  75% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tree__canopy,
+  .tree__chip {
+    animation: none;
+  }
+}

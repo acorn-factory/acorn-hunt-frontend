@@ -1,0 +1,107 @@
+/*
+ * Responsive rules from the Figma guide frames (360×780 min, 375×812, 402×871, 480×1040):
+ * - the tree overlaps the header card by 40px
+ * - the acorn click area is 320px tall at 780px and scales with viewport height (320/780)
+ * - the bottom ad banner is pinned; the point cell + ad cells scroll under it
+ */
+.hunt-shell {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 100dvh;
+  overflow: hidden;
+  background: var(--field-green);
+}
+
+.hunt {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background-color: var(--field-green);
+  background-image: url('./assets/field-grass.png');
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 133% auto;
+  padding-bottom: calc(var(--ad-banner-height) + env(safe-area-inset-bottom, 0px) + 12px);
+}
+
+.hunt__stage {
+  position: relative;
+  margin-top: -40px;
+}
+
+/* Like the click area, the tree scales with viewport height: 160px at 780 (→166 @812, 179 @871, 213 @1040). */
+.hunt__tree {
+  position: relative;
+  z-index: 1;
+  width: calc(100dvh * 160 / 780 * 470 / 480);
+  margin: 0 auto;
+}
+
+/* Toasts sit over the lower canopy, like Frames 49/55. */
+.hunt__toast {
+  position: absolute;
+  left: 50%;
+  bottom: 18%;
+  translate: -50% 0;
+  z-index: 2;
+}
+
+.hunt__field {
+  position: relative;
+  z-index: 2;
+  width: calc(100% - 26px);
+  height: calc(100dvh * 320 / 780);
+  margin: 0 auto;
+}
+
+.hunt__pick-hint {
+  position: absolute;
+  left: 50%;
+  top: 14%;
+  translate: -50% 0;
+  z-index: 3;
+  animation: hint-bob 1.6s ease-in-out infinite;
+}
+
+.hunt__bottom {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 0 13px;
+}
+
+.hunt__point-tip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% - 4px);
+  translate: -50% 0;
+  z-index: 3;
+}
+
+.hunt-shell__banner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+}
+
+@keyframes hint-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hunt__pick-hint {
+    animation: none;
+  }
+}

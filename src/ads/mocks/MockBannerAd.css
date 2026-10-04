@@ -1,0 +1,76 @@
+/* Figma "하단 광고배너": 71px, #282828, 30px logo, 17/13/7px text stack */
+.mock-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 71px;
+  padding: 8px 24px;
+  overflow: hidden;
+}
+
+.mock-banner--card {
+  padding: 8px 16px;
+}
+
+.mock-banner__logo {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 10px;
+  background: #3182f6;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.mock-banner__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.35;
+}
+
+.mock-banner__title,
+.mock-banner__subtitle,
+.mock-banner__legal {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mock-banner__title {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.mock-banner__subtitle {
+  font-size: 13px;
+}
+
+.mock-banner__legal {
+  font-size: 7px;
+}
+
+.mock-banner--bar .mock-banner__title {
+  color: #fff;
+}
+
+.mock-banner--bar .mock-banner__subtitle,
+.mock-banner--bar .mock-banner__legal {
+  color: rgba(253, 253, 254, 0.89);
+}
+
+.mock-banner--card .mock-banner__title {
+  font-size: 15px;
+  color: var(--grey-900);
+}
+
+.mock-banner--card .mock-banner__subtitle {
+  color: rgba(0, 12, 30, 0.6);
+}

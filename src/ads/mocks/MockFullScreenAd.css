@@ -1,0 +1,77 @@
+.mock-ad {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg, #2b3aa0, #6d3ac0 45%, #c0397a);
+  color: #fff;
+}
+
+.mock-ad__label {
+  position: absolute;
+  top: calc(env(safe-area-inset-top, 0px) + 16px);
+  left: 16px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mock-ad__close {
+  position: absolute;
+  top: calc(env(safe-area-inset-top, 0px) + 14px);
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.mock-ad__close.is-skip {
+  width: auto;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mock-ad__body {
+  text-align: center;
+}
+
+.mock-ad__eyebrow {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.mock-ad__title {
+  margin: 14px 0 0;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.mock-ad__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mock-ad__progress i {
+  display: block;
+  height: 100%;
+  background: #fff;
+  transition: width 1s linear;
+}

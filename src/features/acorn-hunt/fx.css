@@ -1,0 +1,112 @@
+/* One-shot effects drawn by fx.ts */
+.fx-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.fx-flyer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.fx-burst {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.fx-burst__ring {
+  position: absolute;
+  left: -16px;
+  top: -16px;
+  width: 32px;
+  height: 32px;
+  border: 3px solid #fff0b8;
+  border-radius: 999px;
+  animation: fx-ring 0.42s cubic-bezier(0.15, 0.7, 0.4, 1) both;
+}
+
+.fx-burst__spark {
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  animation: fx-spark 0.46s cubic-bezier(0.2, 0.7, 0.35, 1) both;
+}
+
+.fx-burst__plus {
+  position: absolute;
+  left: -14px;
+  top: -14px;
+  width: 28px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  animation: fx-plus 0.62s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+
+.fx-coin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: linear-gradient(160deg, #ffd873, #f2a93b);
+  box-shadow:
+    inset 0 -4px 0 rgba(0, 0, 0, 0.14),
+    0 6px 16px rgba(0, 0, 0, 0.28);
+  color: #7a4a0e;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+@keyframes fx-ring {
+  from {
+    transform: scale(0.35);
+    opacity: 0.95;
+  }
+  to {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+
+@keyframes fx-spark {
+  from {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--dx), var(--dy)) scale(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes fx-plus {
+  0% {
+    transform: translateY(0) scale(0.7);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(-10px) scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-38px) scale(1);
+    opacity: 0;
+  }
+}
