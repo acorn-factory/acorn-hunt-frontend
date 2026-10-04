@@ -24,3 +24,20 @@ dist-ssr
 *.sw?
 
 *.ait
+
+# Env (keep only the example)
+.env
+.env.*
+!.env.example
+
+# Test / build caches
+coverage
+*.tsbuildinfo
+
+# Claude Code personal settings
+.claude/settings.local.json
+
+# Secrets / certificates
+*.pem
+*.key
+*.p12
